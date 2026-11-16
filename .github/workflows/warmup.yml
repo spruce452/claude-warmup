@@ -47,7 +47,7 @@ jobs:
             exit 0
           fi
 
-          if grep -Eiq "expired|unauthorized|invalid token|authentication|auth failed|login required|not logged in" "$output_file"; then
+          if grep -Eiq "expired|unauthorized|invalid token|invalid bearer token|authenticate|authentication|auth failed|login required|not logged in|401" "$output_file"; then
             echo "Claude token appears invalid or expired."
             echo "Run 'claude setup-token' locally and update the CLAUDE_OAUTH_TOKEN GitHub secret."
             exit 1
